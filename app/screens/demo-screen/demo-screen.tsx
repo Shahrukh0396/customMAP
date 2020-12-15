@@ -80,6 +80,7 @@ const HINT: TextStyle = {
 export const DemoScreen = observer(function DemoScreen() {
   const navigation = useNavigation()
   const goBack = () => navigation.goBack()
+  const nextScreen = () => navigation.navigate("map")
 
   const demoReactotron = React.useMemo(
     () => async () => {
@@ -142,6 +143,15 @@ export const DemoScreen = observer(function DemoScreen() {
             textStyle={DEMO_TEXT}
             tx="demoScreen.reactotron"
             onPress={demoReactotron}
+          />
+          <Text style={HINT} tx={`demoScreen.${Platform.OS}ReactotronHint`} />
+        </View>
+        <View>
+          <Button
+            style={DEMO}
+            textStyle={DEMO_TEXT}
+            tx="demoScreen.map"
+            onPress={nextScreen}
           />
           <Text style={HINT} tx={`demoScreen.${Platform.OS}ReactotronHint`} />
         </View>
